@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Calendario Pastoral Juvenil "San Agustín"</title>
 
-  <!-- Librería de calendario (FullCalendar) -->
+  <!-- Librería FullCalendar -->
   <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
 
@@ -97,7 +97,7 @@
       margin-bottom: 10px;
     }
 
-    /* Botones y formularios solo visibles para el administrador */
+    /* Panel admin (solo visible si eres tú) */
     .admin-panel {
       margin-top: 20px;
       background: rgba(255,255,255,0.15);
@@ -105,7 +105,7 @@
       border-radius: 10px;
     }
 
-    .admin-panel input, .admin-panel textarea {
+    .admin-panel input, .admin-panel textarea, .admin-panel input[type="date"] {
       width: 100%;
       padding: 8px;
       margin: 8px 0;
@@ -165,10 +165,11 @@
 
       <!-- Panel de administración -->
       <div class="admin-panel" id="admin-panel">
-        <h4>Agregar nuevo aviso</h4>
-        <input type="text" id="titulo" placeholder="Título del aviso">
-        <textarea id="mensaje" rows="3" placeholder="Mensaje o información"></textarea>
-        <button onclick="agregarAviso()">Guardar aviso</button>
+        <h4>Agregar nuevo evento o aviso</h4>
+        <input type="text" id="titulo" placeholder="Título del evento o aviso">
+        <textarea id="descripcion" rows="3" placeholder="Descripción o información adicional"></textarea>
+        <input type="date" id="fecha">
+        <button onclick="agregarEvento()">Guardar evento</button>
       </div>
     </div>
   </section>
@@ -184,62 +185,81 @@
   </footer>
 
   <script>
-    // --- CALENDARIO ---
-    document.addEventListener('DOMContentLoaded', function() {
-      var calendarEl = document.getElementById('calendar');
-      var calendar = new FullCalendar.Calendar(calendarEl, {
-        initialView: 'dayGridYear', // vista anual
-        headerToolbar: {
-          left: 'prev,next today',
-          center: 'title',
-          right: 'dayGridMonth,dayGridYear'
-        },
-        locale: 'es',
-        events: [
-          { title: 'Reunión de Pastoral', start: '2025-01-15' },
-          { title: 'Retiro Espiritual', start: '2025-03-20', end: '2025-03-22' },
-          { title: 'Campamento Juvenil', start: '2025-07-10', end: '2025-07-13' },
-          { title: 'Fiesta Patronal', start: '2025-12-12' }
-        ]
-      });
-      calendar.render();
-    });
-
-    // --- AVISOS ---
-    const listaAvisos = document.getElementById("lista-avisos");
-    const avisosGuardados = JSON.parse(localStorage.getItem("avisosPastoral")) || [];
-    mostrarAvisos();
-
-    function agregarAviso() {
-      const titulo = document.getElementById("titulo").value.trim();
-      const mensaje = document.getElementById("mensaje").value.trim();
-      if (titulo && mensaje) {
-        avisosGuardados.push({ titulo, mensaje, fecha: new Date().toLocaleDateString() });
-        localStorage.setItem("avisosPastoral", JSON.stringify(avisosGuardados));
-        mostrarAvisos();
-        document.getElementById("titulo").value = "";
-        document.getElementById("mensaje").value = "";
-      } else {
-        alert("Por favor, completa todos los campos.");
-      }
-    }
-
-    function mostrarAvisos() {
-      listaAvisos.innerHTML = "";
-      avisosGuardados.forEach(a => {
-        const avisoDiv = document.createElement("div");
-        avisoDiv.classList.add("aviso");
-        avisoDiv.innerHTML = `<strong>${a.titulo}</strong><br>${a.mensaje}<br><small>${a.fecha}</small>`;
-        listaAvisos.appendChild(avisoDiv);
-      });
-    }
-
-    // --- Simulación básica de acceso administrador ---
-    // Si no eres tú, puedes ocultar el panel de edición fácilmente
-    const esAdmin = true; // Cámbialo a false si no quieres mostrar el panel
+    // --- CONTROL DE ADMIN ---
+    const esAdmin = true; // 🔒 CAMBIA a false para que otros NO puedan editar
     if (!esAdmin) {
       document.getElementById("admin-panel").style.display = "none";
     }
+
+    // --- EVENTOS GUARDADOS ---
+    const eventosGuardados = JSON.parse(localStorage.getItem("eventosPastoral")) || [];
+
+    // --- INICIALIZAR CALENDARIO ---
+    document.addEventListener('DOMContentLoaded', function() {
+      const calendarEl = document.getElementById('calendar');
+      const calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        locale: 'es',
+        height: 'auto',
+        fixedWeekCount: false,
+        headerToolbar: {
+          left: 'prev,next today',
+          center: 'title',
+          right: ''
+        },
+        events: eventosGuardados,
+        eventColor: '#a94442',
+      });
+      calendar.render();
+      window.calendar = calendar;
+    });
+
+    // --- AGREGAR EVENTO (solo admin) ---
+    function agregarEvento() {
+      if (!esAdmin) return;
+
+      const titulo = document.getElementById("titulo").value.trim();
+      const descripcion = document.getElementById("descripcion").value.trim();
+      const fecha = document.getElementById("fecha").value;
+
+      if (titulo && fecha) {
+        const nuevoEvento = { title: titulo, start: fecha, description: descripcion };
+        eventosGuardados.push(nuevoEvento);
+        localStorage.setItem("eventosPastoral", JSON.stringify(eventosGuardados));
+
+        // Agregar visualmente al calendario
+        window.calendar.addEvent(nuevoEvento);
+
+        // Mostrar aviso en la lista
+        mostrarAvisos();
+
+        // Limpiar campos
+        document.getElementById("titulo").value = "";
+        document.getElementById("descripcion").value = "";
+        document.getElementById("fecha").value = "";
+      } else {
+        alert("Por favor completa al menos el título y la fecha.");
+      }
+    }
+
+    // --- MOSTRAR AVISOS (sin editar) ---
+    function mostrarAvisos() {
+      const lista = document.getElementById("lista-avisos");
+      lista.innerHTML = "";
+
+      eventosGuardados.forEach(ev => {
+        const aviso = document.createElement("div");
+        aviso.classList.add("aviso");
+        aviso.innerHTML = `
+          <strong>${ev.title}</strong><br>
+          ${ev.description || ""}<br>
+          <small>📅 ${new Date(ev.start).toLocaleDateString()}</small>
+        `;
+        lista.appendChild(aviso);
+      });
+    }
+
+    mostrarAvisos();
   </script>
 
 </body>
