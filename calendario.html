@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calendario Pastoral Juvenil "San Agustín"</title>
+
+  <!-- Librería de calendario (FullCalendar) -->
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", Arial, sans-serif;
+      background-image: url('basilica_guadalupe.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: #fff;
+    }
+
+    header {
+      background: rgba(122, 46, 46, 0.9);
+      color: #fff;
+      padding: 15px 25px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      backdrop-filter: blur(5px);
+    }
+
+    header .logo-principal {
+      height: 80px;
+      width: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #fff;
+      margin-right: 15px;
+    }
+
+    .header-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .title {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      font-style: italic;
+    }
+
+    .content {
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 15px;
+      padding: 25px;
+      margin: 30px auto;
+      width: 90%;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+
+    #calendar {
+      background: rgba(255,255,255,0.9);
+      border-radius: 10px;
+      padding: 10px;
+      color: #333;
+    }
+
+    h2 {
+      border-left: 5px solid #fff;
+      padding-left: 10px;
+      margin-bottom: 20px;
+    }
+
+    .avisos {
+      margin-top: 30px;
+      background: rgba(255,255,255,0.1);
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .avisos h3 {
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .aviso {
+      background: rgba(255,255,255,0.2);
+      padding: 10px 15px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    /* Botones y formularios solo visibles para el administrador */
+    .admin-panel {
+      margin-top: 20px;
+      background: rgba(255,255,255,0.15);
+      padding: 15px;
+      border-radius: 10px;
+    }
+
+    .admin-panel input, .admin-panel textarea {
+      width: 100%;
+      padding: 8px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .admin-panel button {
+      background: #7a2e2e;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .admin-panel button:hover {
+      background: #a94442;
+    }
+
+    footer {
+      background: rgba(122, 46, 46, 0.9);
+      color: #fff;
+      text-align: center;
+      padding: 30px 10px;
+      margin-top: 40px;
+      box-shadow: 0 -4px 10px rgba(0,0,0,0.3);
+    }
+
+    .social-icons img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin: 0 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div style="display: flex; align-items: center; flex-wrap: wrap;">
+      <img src="logo_pastoral.png" alt="Logo" class="logo-principal">
+      <div class="header-text">
+        <div class="title">Pastoral Juvenil "San Agustín"</div>
+        <div class="subtitle">Calendario Parroquial • Cd. Tecolutilla</div>
+      </div>
+    </div>
+  </header>
+
+  <section class="content">
+    <h2>Calendario Pastoral 2025</h2>
+    <div id="calendar"></div>
+
+    <div class="avisos">
+      <h3>📢 Avisos Importantes</h3>
+      <div id="lista-avisos"></div>
+
+      <!-- Panel de administración -->
+      <div class="admin-panel" id="admin-panel">
+        <h4>Agregar nuevo aviso</h4>
+        <input type="text" id="titulo" placeholder="Título del aviso">
+        <textarea id="mensaje" rows="3" placeholder="Mensaje o información"></textarea>
+        <button onclick="agregarAviso()">Guardar aviso</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Parroquia Nuestra Señora de Guadalupe • Cd. Tecolutilla</p>
+    <div class="social-icons">
+      <a href="#"><img src="icon_whatsapp.png" alt=""></a>
+      <a href="#"><img src="icon_facebook.png" alt=""></a>
+      <a href="#"><img src="icon_instagram.png" alt=""></a>
+      <a href="#"><img src="icon_tiktok.png" alt=""></a>
+    </div>
+  </footer>
+
+  <script>
+    // --- CALENDARIO ---
+    document.addEventListener('DOMContentLoaded', function() {
+      var calendarEl = document.getElementById('calendar');
+      var calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridYear', // vista anual
+        headerToolbar: {
+          left: 'prev,next today',
+          center: 'title',
+          right: 'dayGridMonth,dayGridYear'
+        },
+        locale: 'es',
+        events: [
+          { title: 'Reunión de Pastoral', start: '2025-01-15' },
+          { title: 'Retiro Espiritual', start: '2025-03-20', end: '2025-03-22' },
+          { title: 'Campamento Juvenil', start: '2025-07-10', end: '2025-07-13' },
+          { title: 'Fiesta Patronal', start: '2025-12-12' }
+        ]
+      });
+      calendar.render();
+    });
+
+    // --- AVISOS ---
+    const listaAvisos = document.getElementById("lista-avisos");
+    const avisosGuardados = JSON.parse(localStorage.getItem("avisosPastoral")) || [];
+    mostrarAvisos();
+
+    function agregarAviso() {
+      const titulo = document.getElementById("titulo").value.trim();
+      const mensaje = document.getElementById("mensaje").value.trim();
+      if (titulo && mensaje) {
+        avisosGuardados.push({ titulo, mensaje, fecha: new Date().toLocaleDateString() });
+        localStorage.setItem("avisosPastoral", JSON.stringify(avisosGuardados));
+        mostrarAvisos();
+        document.getElementById("titulo").value = "";
+        document.getElementById("mensaje").value = "";
+      } else {
+        alert("Por favor, completa todos los campos.");
+      }
+    }
+
+    function mostrarAvisos() {
+      listaAvisos.innerHTML = "";
+      avisosGuardados.forEach(a => {
+        const avisoDiv = document.createElement("div");
+        avisoDiv.classList.add("aviso");
+        avisoDiv.innerHTML = `<strong>${a.titulo}</strong><br>${a.mensaje}<br><small>${a.fecha}</small>`;
+        listaAvisos.appendChild(avisoDiv);
+      });
+    }
+
+    // --- Simulación básica de acceso administrador ---
+    // Si no eres tú, puedes ocultar el panel de edición fácilmente
+    const esAdmin = true; // Cámbialo a false si no quieres mostrar el panel
+    if (!esAdmin) {
+      document.getElementById("admin-panel").style.display = "none";
+    }
+  </script>
+
+</body>
+</html>
