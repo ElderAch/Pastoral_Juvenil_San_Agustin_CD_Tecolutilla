@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pastoral Juvenil San Agustin</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      background: #456B75;
+      color: #fff;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* Estilo actualizado para el nuevo logo */
+    header img.logo-principal {
+      height: 80px; /* Tamaño un poco más grande para que se vea bien el detalle */
+      width: auto;
+      margin-right: 15px; /* Espacio a la derecha del logo */
+    }
+
+    .title {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    nav {
+      background: #5A7B86;
+    }
+
+    nav ul {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      list-style: none;
+    }
+
+    nav li {
+      padding: 14px 20px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .banner {
+      position: relative;
+    }
+
+    .banner img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+    }
+
+    .banner-text {
+      position: absolute;
+      bottom: 20px;
+      left: 30px;
+      color: #fff;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    footer {
+      background: #456B75;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 30px;
+    }
+
+    .slider {
+      width: 90%;
+      margin: 20px auto;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .slides {
+      display: flex;
+      width: 300%;
+      animation: slide 12s infinite;
+    }
+
+    .slides img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+    }
+
+    @keyframes slide {
+      0% { margin-left: 0; }
+      33% { margin-left: -100%; }
+      66% { margin-left: -200%; }
+      100% { margin-left: 0; }
+    }
+
+    .content {
+      padding: 20px;
+    }
+
+    .back-home {
+      display: inline-block;
+      margin-top: 20px;
+      background: #456B75;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    .back-home:hover {
+      background: #2f4f56;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div style="display: flex; align-items: center;">
+            <img src="logo_pastoral.jpeg" alt="Logo Pastoral Juvenil San Agustín y Nuestra Señora de Guadalupe" class="logo-principal">
+      <div class="title">Pastoral Juvenil San Agustin</div>
+    </div>
+    <div style="font-size: 14px;">“Caminar en la fe y el servicio”</div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="registro.html" target="_blank">Registro</a></li>
+      <li><a href="calendario.html" target="_blank">Calendario</a></li>
+      <li><a href="formacion.html" target="_blank">Formación</a></li>
+      <li><a href="eventos.html">Eventos</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <section class="banner">
+    <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1" alt="Jóvenes reunidos">
+    <div class="banner-text">Pastoral Juvenil</div>
+  </section>
+
+  <section class="content">
+    <h2>Descripción</h2>
+    <p>La Pastoral Juvenil es un espacio de encuentro, formación y misión para los jóvenes que desean crecer en su fe y servir en comunidad.</p>
+
+    <h2>Reflexión</h2>
+    <p>“Nadie te menosprecie por ser joven; al contrario, que los creyentes vean en ti un ejemplo a seguir en la manera de hablar, en la conducta, en amor, fe y pureza.” (1 Timoteo 4,12)</p>
+
+    <h2>Eventos</h2>
+    <div class="slider">
+      <div class="slides">
+        <img src="https://images.unsplash.com/photo-1526481280698-8fcc12e8d6de" alt="Evento 1">
+        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644" alt="Evento 2">
+        <img src="https://images.unsplash.com/photo-1521334884684-d80222895322" alt="Evento 3">
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Pastoral Juvenil Católica • Parroquia • Diócesis</p>
+    <p>Contacto: pastoral@ejemplo.org • Tel: (999) 000-0000</p>
+  </footer>
+</body>
+</html>
