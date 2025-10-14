@@ -1,183 +1,205 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Pastoral Juvenil San Agustin</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-    }
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pastoral Juvenil San Agustín</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-image: url('fondo_pastoral.jpg');
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      color: #333;
+    }
 
-    header {
-      background: #456B75;
-      color: #fff;
-      padding: 10px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
+    header {
+      background: #7A2E2E;
+      color: #fff;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
 
-    /* Estilo actualizado para el nuevo logo */
-    header img.logo-principal {
-      height: 80px; /* Tamaño un poco más grande para que se vea bien el detalle */
-      width: auto;
-      margin-right: 15px; /* Espacio a la derecha del logo */
-    }
+    header img.logo-principal {
+      height: 80px;
+      width: auto;
+      margin-right: 15px;
+    }
 
-    .title {
-      font-size: 20px;
-      font-weight: bold;
-    }
+    .title {
+      font-size: 24px;
+      font-weight: bold;
+    }
 
-    nav {
-      background: #5A7B86;
-    }
+    nav {
+      background: #A94442;
+    }
 
-    nav ul {
-      margin: 0;
-      padding: 0;
-      display: flex;
-      list-style: none;
-    }
+    nav ul {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      list-style: none;
+    }
 
-    nav li {
-      padding: 14px 20px;
-    }
+    nav li {
+      padding: 14px 20px;
+    }
 
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
 
-    nav a:hover {
-      text-decoration: underline;
-    }
+    nav a:hover {
+      color: #D4AF37;
+    }
 
-    .banner {
-      position: relative;
-    }
+    .banner {
+      position: relative;
+      text-align: center;
+      color: white;
+    }
 
-    .banner img {
-      width: 100%;
-      height: 400px;
-      object-fit: cover;
-    }
+    .banner img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      filter: brightness(0.7);
+    }
 
-    .banner-text {
-      position: absolute;
-      bottom: 20px;
-      left: 30px;
-      color: #fff;
-      background: rgba(0, 0, 0, 0.5);
-      padding: 10px 20px;
-      border-radius: 5px;
-      font-size: 32px;
-      font-weight: bold;
-    }
+    .banner-text {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.5);
+      padding: 15px 30px;
+      border-radius: 10px;
+      font-size: 36px;
+      font-weight: bold;
+      color: #D4AF37;
+    }
 
-    footer {
-      background: #456B75;
-      color: #fff;
-      text-align: center;
-      padding: 20px;
-      margin-top: 30px;
-    }
+    .content {
+      padding: 30px;
+      background: rgba(255,255,255,0.9);
+      margin: 40px auto;
+      width: 85%;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
 
-    .slider {
-      width: 90%;
-      margin: 20px auto;
-      overflow: hidden;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
+    .content h2 {
+      color: #7A2E2E;
+      border-bottom: 2px solid #D4AF37;
+      padding-bottom: 5px;
+    }
 
-    .slides {
-      display: flex;
-      width: 300%;
-      animation: slide 12s infinite;
-    }
+    .slider {
+      width: 90%;
+      margin: 30px auto;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
 
-    .slides img {
-      width: 100%;
-      height: 400px;
-      object-fit: cover;
-    }
+    .slides {
+      display: flex;
+      width: 300%;
+      animation: slide 12s infinite;
+    }
 
-    @keyframes slide {
-      0% { margin-left: 0; }
-      33% { margin-left: -100%; }
-      66% { margin-left: -200%; }
-      100% { margin-left: 0; }
-    }
+    .slides img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+    }
 
-    .content {
-      padding: 20px;
-    }
+    @keyframes slide {
+      0% { margin-left: 0; }
+      33% { margin-left: -100%; }
+      66% { margin-left: -200%; }
+      100% { margin-left: 0; }
+    }
 
-    .back-home {
-      display: inline-block;
-      margin-top: 20px;
-      background: #456B75;
-      color: white;
-      padding: 10px 15px;
-      border-radius: 5px;
-      text-decoration: none;
-    }
+    footer {
+      background: #7A2E2E;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 30px;
+    }
 
-    .back-home:hover {
-      background: #2f4f56;
-    }
-  </style>
+    .back-home {
+      display: inline-block;
+      margin-top: 20px;
+      background: #7A2E2E;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .back-home:hover {
+      background: #D4AF37;
+      color: #7A2E2E;
+    }
+  </style>
 </head>
 
 <body>
-  <header>
-    <div style="display: flex; align-items: center;">
-            <img src="logo_pastoral.jpeg" alt="Logo Pastoral Juvenil San Agustín y Nuestra Señora de Guadalupe" class="logo-principal">
-      <div class="title">Pastoral Juvenil San Agustin</div>
-    </div>
-    <div style="font-size: 14px;">“Caminar en la fe y el servicio”</div>
-  </header>
+  <header>
+    <div style="display: flex; align-items: center;">
+      <img src="logo_pastoral.png" alt="Logo Pastoral Juvenil San Agustín" class="logo-principal">
+      <div class="title">Pastoral Juvenil San Agustín</div>
+    </div>
+    <div style="font-size: 14px;">“Caminar en la fe y el servicio”</div>
+  </header>
 
-  <nav>
-    <ul>
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="registro.html" target="_blank">Registro</a></li>
-      <li><a href="calendario.html" target="_blank">Calendario</a></li>
-      <li><a href="formacion.html" target="_blank">Formación</a></li>
-      <li><a href="eventos.html">Eventos</a></li>
-      <li><a href="contacto.html">Contacto</a></li>
-    </ul>
-  </nav>
+  <nav>
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="registro.html" target="_blank">Registro</a></li>
+      <li><a href="calendario.html" target="_blank">Calendario</a></li>
+      <li><a href="formacion.html" target="_blank">Formación</a></li>
+      <li><a href="eventos.html">Eventos</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+  </nav>
 
-  <section class="banner">
-    <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1" alt="Jóvenes reunidos">
-    <div class="banner-text">Pastoral Juvenil</div>
-  </section>
+  <section class="banner">
+    <img src="banner.jpg" alt="Jóvenes reunidos">
+    <div class="banner-text">Pastoral Juvenil San Agustín</div>
+  </section>
 
-  <section class="content">
-    <h2>Descripción</h2>
-    <p>La Pastoral Juvenil es un espacio de encuentro, formación y misión para los jóvenes que desean crecer en su fe y servir en comunidad.</p>
+  <section class="content">
+    <h2>Descripción</h2>
+    <p>La Pastoral Juvenil es un espacio de encuentro, formación y misión para los jóvenes que desean crecer en su fe y servir en comunidad.</p>
 
-    <h2>Reflexión</h2>
-    <p>“Nadie te menosprecie por ser joven; al contrario, que los creyentes vean en ti un ejemplo a seguir en la manera de hablar, en la conducta, en amor, fe y pureza.” (1 Timoteo 4,12)</p>
+    <h2>Reflexión</h2>
+    <p>“Nadie te menosprecie por ser joven; al contrario, que los creyentes vean en ti un ejemplo a seguir en la manera de hablar, en la conducta, en amor, fe y pureza.” (1 Timoteo 4,12)</p>
 
-    <h2>Eventos</h2>
-    <div class="slider">
-      <div class="slides">
-        <img src="https://images.unsplash.com/photo-1526481280698-8fcc12e8d6de" alt="Evento 1">
-        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644" alt="Evento 2">
-        <img src="https://images.unsplash.com/photo-1521334884684-d80222895322" alt="Evento 3">
-      </div>
-    </div>
-  </section>
+    <h2>Eventos</h2>
+    <div class="slider">
+      <div class="slides">
+        <img src="evento1.jpg" alt="Retiro espiritual">
+        <img src="evento2.jpg" alt="Misa juvenil">
+        <img src="evento3.jpg" alt="Encuentro diocesano">
+      </div>
+    </div>
+  </section>
 
-  <footer>
-    <p>Pastoral Juvenil Católica • Parroquia • Diócesis</p>
-    <p>Contacto: pastoral@ejemplo.org • Tel: (999) 000-0000</p>
-  </footer>
+  <footer>
+    <p>Pastoral Juvenil Católica • Parroquia San Agustín</p>
+    <p>Contacto: pastoral@ejemplo.org • Tel: (999) 000-0000</p>
+  </footer>
 </body>
 </html>
