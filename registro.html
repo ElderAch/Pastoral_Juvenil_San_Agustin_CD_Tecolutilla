@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Registro - Pastoral Juvenil "San Agustín"</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", Arial, sans-serif;
+      background-image: url('fondo_pastoral.jpg');
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      color: #fff;
+    }
+
+    header {
+      background: rgba(122, 46, 46, 0.9);
+      color: #fff;
+      padding: 15px 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      backdrop-filter: blur(5px);
+      text-align: center;
+    }
+    header .title { font-size: 24px; font-weight: bold; margin-bottom: 5px; }
+    header .subtitle { font-size: 16px; font-style: italic; }
+
+    .form-container {
+      background: rgba(0,0,0,0.6);
+      max-width: 500px;
+      margin: 50px auto;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    .form-container img {
+      display: block;
+      margin: 0 auto 20px auto;
+      width: 100px;
+      border-radius: 50%;
+      border: 3px solid #fff;
+    }
+
+    form label { display: block; margin-top: 15px; font-weight: bold; }
+    form input, form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 8px;
+      border: none;
+      font-size: 14px;
+    }
+
+    form button {
+      margin-top: 20px;
+      padding: 12px;
+      width: 100%;
+      background: #aa2e2e;
+      color: #fff;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    form button:hover { background: #d04040; }
+
+    footer {
+      background: rgba(122, 46, 46, 0.9);
+      color: #fff;
+      text-align: center;
+      padding: 20px 10px;
+      margin-top: 40px;
+      box-shadow: 0 -4px 10px rgba(0,0,0,0.3);
+      font-size: 14px;
+    }
+  </style>
+  <script>
+    function checkErmita() {
+      const ermita = document.getElementById("ermita").value.toLowerCase();
+      const zonaDiv = document.getElementById("zonaDiv");
+      if (ermita === "ninguna") {
+        zonaDiv.style.display = "none";
+      } else {
+        zonaDiv.style.display = "block";
+      }
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="title">Pastoral Juvenil "San Agustín"</div>
+    <div class="subtitle">Parroquia Nuestra Señora de Guadalupe • Cd. Tecolutilla</div>
+  </header>
+
+  <div class="form-container">
+    <img src="logo_pastoral.png" alt="Logo">
+    <form action="guardar_respuestas.php" method="POST">
+      <label for="nombre">Nombre completo:</label>
+      <input type="text" id="nombre" name="nombre" required>
+
+      <label for="edad">Edad:</label>
+      <input type="number" id="edad" name="edad" required min="10" max="100">
+
+      <label for="vives">¿En dónde vives?</label>
+      <input type="text" id="vives" name="vives" required>
+
+      <label for="ermita">Ermita a la que perseveras (escribe "ninguna" si no perteneces a ninguna):</label>
+      <input type="text" id="ermita" name="ermita" oninput="checkErmita()" required>
+
+      <div id="zonaDiv">
+        <label for="zona">Zona a la que perteneces:</label>
+        <input type="text" id="zona" name="zona">
+      </div>
+
+      <label for="ministerio">¿Tienes algún ministerio? (opcional)</label>
+      <input type="text" id="ministerio" name="ministerio">
+
+      <label for="comentario">Comentario que desees dejar:</label>
+      <textarea id="comentario" name="comentario" rows="4"></textarea>
+
+      <button type="submit">Enviar registro</button>
+    </form>
+  </div>
+
+  <footer>
+    📍 Parroquia Nuestra Señora de Guadalupe, Cd. Tecolutilla
+  </footer>
+</body>
+</html>
