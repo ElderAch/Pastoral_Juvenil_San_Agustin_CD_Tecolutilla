@@ -1,137 +1,182 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Registro - Pastoral Juvenil "San Agustín"</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: "Poppins", Arial, sans-serif;
-      background-image: url('fondo_pastoral.jpg');
-      background-size: cover;
-      background-attachment: fixed;
-      background-position: center;
-      color: #fff;
-    }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Registro - Pastoral Juvenil "San Agustín"</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  body {
+    margin: 0;
+    font-family: 'Poppins', Arial, sans-serif;
+    background: url('fondo_formulario.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+  }
 
-    header {
-      background: rgba(122, 46, 46, 0.9);
-      color: #fff;
-      padding: 15px 25px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      backdrop-filter: blur(5px);
-      text-align: center;
-    }
-    header .title { font-size: 24px; font-weight: bold; margin-bottom: 5px; }
-    header .subtitle { font-size: 16px; font-style: italic; }
+  header {
+    background: rgba(122,46,46,0.9);
+    text-align: center;
+    padding: 25px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  }
 
-    .form-container {
-      background: rgba(0,0,0,0.6);
-      max-width: 500px;
-      margin: 50px auto;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    }
+  header h1 { margin: 0; font-size: 26px; }
+  header p { margin: 5px 0 0; font-size: 15px; font-style: italic; }
 
-    .form-container img {
-      display: block;
-      margin: 0 auto 20px auto;
-      width: 100px;
-      border-radius: 50%;
-      border: 3px solid #fff;
-    }
+  .form-container {
+    width: 90%;
+    max-width: 600px;
+    margin: 40px auto;
+    background: rgba(0,0,0,0.65);
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    animation: fadeIn 1s ease-in;
+  }
 
-    form label { display: block; margin-top: 15px; font-weight: bold; }
-    form input, form textarea {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      border-radius: 8px;
-      border: none;
-      font-size: 14px;
-    }
+  .form-container h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 24px;
+    border-bottom: 2px solid #fff;
+    display: inline-block;
+    padding-bottom: 5px;
+    color: #ffd700;
+  }
 
-    form button {
-      margin-top: 20px;
-      padding: 12px;
-      width: 100%;
-      background: #aa2e2e;
-      color: #fff;
-      font-size: 16px;
-      font-weight: bold;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    form button:hover { background: #d04040; }
+  .form-group { margin-bottom: 18px; }
+  .form-group label { display: block; margin-bottom: 6px; font-weight: 600; }
+  .form-group input, .form-group select, .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+  }
+  .form-group textarea { resize: vertical; }
 
-    footer {
-      background: rgba(122, 46, 46, 0.9);
-      color: #fff;
-      text-align: center;
-      padding: 20px 10px;
-      margin-top: 40px;
-      box-shadow: 0 -4px 10px rgba(0,0,0,0.3);
-      font-size: 14px;
-    }
-  </style>
-  <script>
-    function checkErmita() {
-      const ermita = document.getElementById("ermita").value.toLowerCase();
-      const zonaDiv = document.getElementById("zonaDiv");
-      if (ermita === "ninguna") {
-        zonaDiv.style.display = "none";
-      } else {
-        zonaDiv.style.display = "block";
-      }
-    }
-  </script>
+  .form-group select { background-color: #fff; color: #000; }
+
+  button {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    background: #7a2e2e;
+    border: none;
+    border-radius: 12px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+  }
+  button:hover { background: #a94442; transform: scale(1.02); }
+
+  .thank-you {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+    display: none;
+    color: #00ff00;
+    animation: fadeIn 1s ease-in;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px);}
+    to { opacity: 1; transform: translateY(0);}
+  }
+</style>
 </head>
 <body>
-  <header>
-    <div class="title">Pastoral Juvenil "San Agustín"</div>
-    <div class="subtitle">Parroquia Nuestra Señora de Guadalupe • Cd. Tecolutilla</div>
-  </header>
+<header>
+  <h1>Pastoral Juvenil "San Agustín"</h1>
+  <p>Registro de Participantes - Parroquia Nuestra Señora de Guadalupe • Cd. Tecolutilla</p>
+</header>
 
-  <div class="form-container">
-    <img src="logo_pastoral.png" alt="Logo">
-    <form action="guardar_respuestas.php" method="POST">
-      <label for="nombre">Nombre completo:</label>
+<div class="form-container">
+  <h2>Formulario de Registro</h2>
+  <form id="registroForm">
+    <div class="form-group">
+      <label for="nombre">Nombre Completo</label>
       <input type="text" id="nombre" name="nombre" required>
+    </div>
 
-      <label for="edad">Edad:</label>
-      <input type="number" id="edad" name="edad" required min="10" max="100">
+    <div class="form-group">
+      <label for="edad">Edad</label>
+      <input type="number" id="edad" name="edad" min="1" max="120" required>
+    </div>
 
-      <label for="vives">¿En dónde vives?</label>
-      <input type="text" id="vives" name="vives" required>
+    <div class="form-group">
+      <label for="ciudad">En dónde vives</label>
+      <input type="text" id="ciudad" name="ciudad" required>
+    </div>
 
-      <label for="ermita">Ermita a la que perseveras (escribe "ninguna" si no perteneces a ninguna):</label>
-      <input type="text" id="ermita" name="ermita" oninput="checkErmita()" required>
+    <div class="form-group">
+      <label for="ermita">Ermita a la que perseveras</label>
+      <select id="ermita" name="ermita" required>
+        <option value="" disabled selected>Selecciona</option>
+        <option value="San Agustín">San Agustín</option>
+        <option value="Nuestra Señora de Guadalupe">Nuestra Señora de Guadalupe</option>
+        <option value="San José">San José</option>
+        <option value="Ninguna">Ninguna</option>
+      </select>
+    </div>
 
-      <div id="zonaDiv">
-        <label for="zona">Zona a la que perteneces:</label>
-        <input type="text" id="zona" name="zona">
-      </div>
+    <div class="form-group" id="zonaGroup">
+      <label for="zona">Zona a la que perteneces</label>
+      <input type="text" id="zona" name="zona">
+    </div>
 
-      <label for="ministerio">¿Tienes algún ministerio? (opcional)</label>
+    <div class="form-group">
+      <label for="ministerio">Tienes algún ministerio (opcional)</label>
       <input type="text" id="ministerio" name="ministerio">
+    </div>
 
-      <label for="comentario">Comentario que desees dejar:</label>
+    <div class="form-group">
+      <label for="comentario">Comentario que desees dejar</label>
       <textarea id="comentario" name="comentario" rows="4"></textarea>
+    </div>
 
-      <button type="submit">Enviar registro</button>
-    </form>
+    <button type="submit">Enviar Registro</button>
+  </form>
+
+  <div class="thank-you" id="thankYouMessage">
+    ¡Gracias por registrarte! Tus respuestas han sido guardadas.
   </div>
+</div>
 
-  <footer>
-    📍 Parroquia Nuestra Señora de Guadalupe, Cd. Tecolutilla
-  </footer>
+<script>
+  const ermita = document.getElementById("ermita");
+  const zonaGroup = document.getElementById("zonaGroup");
+  ermita.addEventListener("change", () => {
+    zonaGroup.style.display = ermita.value === "Ninguna" ? "none" : "block";
+  });
+
+  const form = document.getElementById("registroForm");
+  const thankYouMessage = document.getElementById("thankYouMessage");
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault(); // evita recargar la página
+
+    const formData = new FormData(form);
+
+    fetch('guardar_registro.php', {
+      method: 'POST',
+      body: formData
+    }).then(response => {
+      if(response.ok){
+        form.reset();
+        zonaGroup.style.display = "block";
+        thankYouMessage.style.display = "block";
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }).catch(err => {
+      alert("Hubo un error al enviar tus datos, intenta de nuevo.");
+    });
+  });
+</script>
 </body>
 </html>
