@@ -9,7 +9,7 @@
     body {
       margin: 0;
       font-family: "Poppins", Arial, sans-serif;
-      background-image: url('fondo_pastoral.jpg');
+      background-image: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)), url('fondo_pastoral.jpg');
       background-size: cover;
       background-attachment: fixed;
       background-position: center;
@@ -32,7 +32,7 @@
       width: 90px;
       border-radius: 50%;
       object-fit: cover;
-      border: 3px solid #D4AF37;
+      border: 3px solid #fff;
       margin-right: 15px;
     }
 
@@ -45,6 +45,7 @@
       font-size: 26px;
       font-weight: bold;
       margin-bottom: 5px;
+      color: #fff;
     }
 
     .subtitle {
@@ -77,7 +78,8 @@
     }
 
     nav a:hover {
-      color: #D4AF37;
+      color: #f0eaea;
+      text-decoration: underline;
     }
 
     /* --- BANNER --- */
@@ -104,14 +106,14 @@
       border-radius: 10px;
       font-size: 38px;
       font-weight: bold;
-      color: #D4AF37;
+      color: #fff;
       letter-spacing: 1px;
     }
 
     /* --- CONTENIDO --- */
     .content {
       padding: 40px;
-      background: rgba(255,255,255,0.95);
+      background: rgba(255,255,255,0.9);
       margin: 50px auto;
       width: 85%;
       border-radius: 15px;
@@ -121,7 +123,7 @@
 
     .content h2 {
       color: #7A2E2E;
-      border-left: 5px solid #D4AF37;
+      border-left: 5px solid #7A2E2E;
       padding-left: 10px;
       margin-bottom: 15px;
     }
@@ -176,10 +178,6 @@
       box-shadow: 0 4px 20px rgba(255,255,255,0.4);
     }
 
-    .modal-content:hover {
-      transform: none;
-    }
-
     .close {
       position: absolute;
       top: 30px;
@@ -194,13 +192,34 @@
       background: #7A2E2E;
       color: #fff;
       text-align: center;
-      padding: 25px;
+      padding: 30px 10px;
       margin-top: 40px;
       box-shadow: 0 -4px 10px rgba(0,0,0,0.3);
     }
 
     footer p {
       margin: 5px 0;
+    }
+
+    .social-icons {
+      margin-top: 15px;
+    }
+
+    .social-icons a {
+      display: inline-block;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    .social-icons img {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      transition: transform 0.3s;
+    }
+
+    .social-icons img:hover {
+      transform: scale(1.2);
     }
 
     @media(max-width: 768px) {
@@ -220,7 +239,7 @@
         <div class="subtitle">Parroquia Nuestra Señora de Guadalupe • Cd. Tecolutilla</div>
       </div>
     </div>
-    <div style="font-size: 15px;">“Señor dame lo que me pides y Pideme lo que quieras”</div>
+    <div style="font-size: 15px;">“Señor, dame lo que me pides y pídeme lo que quieras”</div>
   </header>
 
   <nav>
@@ -261,7 +280,14 @@
 
   <footer>
     <p>Pastoral Juvenil Católica • Parroquia Nuestra Señora de Guadalupe • Cd. Tecolutilla</p>
-    <p>Contacto: pastoral@ejemplo.org • Tel: (999) 000-0000</p>
+    <p>Contacto y Redes Sociales:</p>
+    <div class="social-icons">
+      <a href="https://wa.me/5299999999999" target="_blank"><img src="whatsapp.png" alt="WhatsApp"></a>
+      <a href="https://www.facebook.com/" target="_blank"><img src="facebook.png" alt="Facebook"></a>
+      <a href="https://www.instagram.com/" target="_blank"><img src="instagram.png" alt="Instagram"></a>
+      <a href="https://www.tiktok.com/" target="_blank"><img src="tiktok.png" alt="TikTok"></a>
+      <a href="mailto:pastoral@ejemplo.org" target="_blank"><img src="email.png" alt="Correo Electrónico"></a>
+    </div>
   </footer>
 
   <script>
