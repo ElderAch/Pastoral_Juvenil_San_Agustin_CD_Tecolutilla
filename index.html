@@ -16,6 +16,7 @@
       color: #fff;
     }
 
+    /* --- HEADER --- */
     header {
       background: rgba(122, 46, 46, 0.9);
       color: #fff;
@@ -27,7 +28,6 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.3);
       backdrop-filter: blur(5px);
     }
-
     header .logo-principal {
       height: 80px;
       width: 80px;
@@ -36,28 +36,15 @@
       border: 3px solid #fff;
       margin-right: 15px;
     }
+    .header-text { display: flex; flex-direction: column; }
+    .title { font-size: 22px; font-weight: bold; color: #fff; }
+    .subtitle { font-size: 14px; font-style: italic; }
 
-    .header-text {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .title {
-      font-size: 22px;
-      font-weight: bold;
-      color: #fff;
-    }
-
-    .subtitle {
-      font-size: 14px;
-      font-style: italic;
-    }
-
+    /* --- NAV --- */
     nav {
       background: rgba(169, 68, 66, 0.9);
       box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     }
-
     nav ul {
       margin: 0;
       padding: 0;
@@ -66,11 +53,7 @@
       justify-content: center;
       list-style: none;
     }
-
-    nav li {
-      padding: 12px 18px;
-    }
-
+    nav li { padding: 12px 18px; }
     nav a {
       color: #fff;
       text-decoration: none;
@@ -78,11 +61,7 @@
       font-size: 15px;
       transition: color 0.3s;
     }
-
-    nav a:hover {
-      color: #f0eaea;
-      text-decoration: underline;
-    }
+    nav a:hover { color: #f0eaea; text-decoration: underline; }
 
     /* --- BANNER --- */
     .banner img {
@@ -102,7 +81,6 @@
       border-radius: 15px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.25);
     }
-
     .content h2 {
       color: #fff;
       border-left: 5px solid #fff;
@@ -110,7 +88,6 @@
       margin-bottom: 15px;
       font-size: 20px;
     }
-
     .content p {
       line-height: 1.6;
       font-size: 15px;
@@ -118,13 +95,12 @@
       margin-bottom: 25px;
     }
 
-    /* --- GALERÍA DE EVENTOS --- */
+    /* --- GALERÍA --- */
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 15px;
     }
-
     .gallery img {
       width: 100%;
       height: 180px;
@@ -133,26 +109,19 @@
       cursor: pointer;
       transition: transform 0.3s, box-shadow 0.3s;
     }
+    .gallery img:hover { transform: scale(1.05); box-shadow: 0 6px 15px rgba(0,0,0,0.4); }
 
-    .gallery img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 15px rgba(0,0,0,0.4);
-    }
-
-    /* --- MODAL (imagen ampliada) --- */
+    /* --- MODAL --- */
     .modal {
       display: none;
       position: fixed;
       z-index: 1000;
       padding-top: 80px;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
       overflow: auto;
       background-color: rgba(0,0,0,0.8);
     }
-
     .modal-content {
       margin: auto;
       display: block;
@@ -161,7 +130,6 @@
       border-radius: 10px;
       box-shadow: 0 4px 20px rgba(255,255,255,0.4);
     }
-
     .close {
       position: absolute;
       top: 30px;
@@ -181,110 +149,81 @@
       margin-top: 40px;
       box-shadow: 0 -4px 10px rgba(0,0,0,0.3);
     }
+    .social-icons { margin-top: 15px; }
+    .social-icons a { display: inline-block; margin: 0 10px; text-decoration: none; }
+    .social-icons img { width: 40px; height: 40px; border-radius: 50%; transition: transform 0.3s; }
+    .social-icons img:hover { transform: scale(1.2); }
+    footer .info { margin-top: 15px; font-size: 14px; line-height: 1.6; }
+    footer a { color: #fff; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
 
-    .social-icons {
-      margin-top: 15px;
+    /* --- FORMULARIO DE REGISTRO --- */
+    #registroForm {
+      background: rgba(0,0,0,0.6);
+      padding: 25px;
+      width: 90%;
+      max-width: 500px;
+      margin: 30px auto;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     }
-
-    .social-icons a {
-      display: inline-block;
-      margin: 0 10px;
-      text-decoration: none;
+    #registroForm label { display: block; margin-top: 15px; font-weight: bold; }
+    #registroForm input, #registroForm select, #registroForm textarea {
+      width: 100%; padding: 10px; margin-top: 5px; border-radius: 8px; border: none; font-size: 14px;
     }
-
-    .social-icons img {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      transition: transform 0.3s;
+    #registroForm button {
+      margin-top: 20px; padding: 12px; width: 100%;
+      background: #aa2e2e; color: #fff; font-size: 16px; font-weight: bold;
+      border: none; border-radius: 10px; cursor: pointer; transition: 0.3s;
     }
-
-    .social-icons img:hover {
-      transform: scale(1.2);
-    }
-
-    footer .info {
-      margin-top: 15px;
-      font-size: 14px;
-      line-height: 1.6;
-    }
-
-    footer a {
-      color: #fff;
-      text-decoration: none;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
+    #registroForm button:hover { background: #d04040; }
+    .img-top { display: block; margin: 20px auto; max-width: 100px; border-radius: 50%; border: 3px solid #fff; }
 
     /* --- RESPONSIVE --- */
     @media(max-width: 768px) {
-      header { 
-        flex-direction: column; 
-        text-align: center; 
-        padding: 10px; 
-      }
-
-      header img.logo-principal { 
-        margin-bottom: 10px; 
-      }
-
-      .title {
-        font-size: 20px;
-      }
-
-      nav ul {
-        flex-direction: column;
-      }
-
-      nav li {
-        padding: 10px;
-      }
-
-      .content {
-        width: 95%;
-        padding: 20px;
-      }
-
-      .gallery img {
-        height: 150px;
-      }
-
-      footer {
-        font-size: 14px;
-      }
+      header { flex-direction: column; text-align: center; padding: 10px; }
+      header img.logo-principal { margin-bottom: 10px; }
+      .title { font-size: 20px; }
+      nav ul { flex-direction: column; }
+      nav li { padding: 10px; }
+      .content { width: 95%; padding: 20px; }
+      .gallery img { height: 150px; }
+      footer { font-size: 14px; }
     }
   </style>
 </head>
 
 <body>
+  <!-- HEADER -->
   <header>
-  <div style="display: flex; align-items: center; flex-wrap: wrap;">
-    <img src="logo_pastoral.png" alt="Logo" class="logo-principal">
-    <div class="header-text">
-      <div class="title">Pastoral Juvenil "San Agustín"</div>
-      <div class="subtitle">Parroquia Nuestra Señora de Guadalupe • Cd. Tecolutilla</div>
+    <div style="display: flex; align-items: center; flex-wrap: wrap;">
+      <img src="logo_pastoral.png" alt="Logo" class="logo-principal">
+      <div class="header-text">
+        <div class="title">Pastoral Juvenil "San Agustín"</div>
+        <div class="subtitle">Parroquia Nuestra Señora de Guadalupe • Cd. Tecolutilla</div>
+      </div>
     </div>
-  </div>
-  <div style="font-size: 13px; text-align:center;">“Señor, dame lo que me pides y pídeme lo que quieras”</div>
-</header>
+    <div style="font-size: 13px; text-align:center;">“Señor, dame lo que me pides y pídeme lo que quieras”</div>
+  </header>
 
+  <!-- NAV -->
   <nav>
     <ul>
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="registro.html" target="_blank">Registro</a></li>
-      <li><a href="calendario.html" target="_blank">Calendario</a></li>
-      <li><a href="formacion.html" target="_blank">Formación</a></li>
-      <li><a href="eventos.html">Eventos</a></li>
-      <li><a href="contacto.html">Contacto</a></li>
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#registro">Registro</a></li>
+      <li><a href="#calendario">Calendario</a></li>
+      <li><a href="#formacion">Formación</a></li>
+      <li><a href="#eventos">Eventos</a></li>
+      <li><a href="#contacto">Contacto</a></li>
     </ul>
   </nav>
 
-  <section class="banner">
+  <!-- BANNER -->
+  <section id="inicio" class="banner">
     <img src="banner.jpg" alt="">
   </section>
 
+  <!-- CONTENIDO -->
   <section class="content">
     <h2>Descripción</h2>
     <p>La Pastoral Juvenil es un espacio de encuentro, formación y misión para los jóvenes que desean crecer en su fe y servir en comunidad. Buscamos fortalecer la espiritualidad, el compromiso social y el sentido de fraternidad cristiana en los jóvenes de nuestra parroquia.</p>
@@ -292,7 +231,7 @@
     <h2>Reflexión</h2>
     <p>“Nadie te menosprecie por ser joven; al contrario, que los creyentes vean en ti un ejemplo a seguir en la manera de hablar, en la conducta, en amor, fe y pureza.” (1 Timoteo 4,12)</p>
 
-    <h2>Eventos</h2>
+    <h2 id="eventos">Eventos</h2>
     <div class="gallery">
       <img src="evento1.jpg" alt="Retiro espiritual" onclick="openModal(this)">
       <img src="evento2.jpg" alt="Misa juvenil" onclick="openModal(this)">
@@ -300,39 +239,28 @@
     </div>
   </section>
 
-  <!-- Modal -->
-  <div id="modal" class="modal" onclick="closeModal()">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <img class="modal-content" id="modal-img">
-  </div>
+  <!-- FORMULARIO DE REGISTRO -->
+  <section id="registro">
+    <h2>Registro</h2>
+    <img src="logo_pastoral.png" alt="Logo" class="img-top">
+    <form id="registroForm" action="guardar_respuestas.php" method="POST">
+      <label for="nombre">Nombre completo:</label>
+      <input type="text" id="nombre" name="nombre" required>
 
-  <footer>
-    <p>Parroquia Nuestra Señora de Guadalupe • Cd. Tecolutilla</p>
-    <div class="social-icons">
-      <a href="https://wa.me/5299999999999" target="_blank"><img src="icon_whatsapp.png" alt="WhatsApp"></a>
-      <a href="https://www.facebook.com/" target="_blank"><img src="icon_facebook.png" alt="Facebook"></a>
-      <a href="https://www.instagram.com/" target="_blank"><img src="icon_instagram.png" alt="Instagram"></a>
-      <a href="https://www.tiktok.com/" target="_blank"><img src="icon_tiktok.png" alt="TikTok"></a>
-    </div>
-    <div class="info">
-      <p><a href="mailto:pastoral@ejemplo.org">pastoral@ejemplo.org</a></p>
-      <p><a href="https://maps.google.com/?q=Parroquia+Nuestra+Señora+de+Guadalupe,+Cd.+Tecolutilla,+Tabasco" target="_blank">
-        📍 Ubicación: Parroquia Nuestra Señora de Guadalupe, Cd. Tecolutilla, Tabasco
-      </a></p>
-    </div>
-  </footer>
+      <label for="edad">Edad:</label>
+      <input type="number" id="edad" name="edad" required min="10" max="100">
 
-  <script>
-    function openModal(img) {
-      const modal = document.getElementById("modal");
-      const modalImg = document.getElementById("modal-img");
-      modal.style.display = "block";
-      modalImg.src = img.src;
-    }
+      <label for="vives">¿En dónde vives?</label>
+      <input type="text" id="vives" name="vives" required>
 
-    function closeModal() {
-      document.getElementById("modal").style.display = "none";
-    }
-  </script>
-</body>
-</html>
+      <label for="ermita">Ermita a la que perseveras:</label>
+      <select id="ermita" name="ermita" onchange="checkErmita()">
+        <option value="ninguna">Ninguna</option>
+        <option value="Ermita 1">Ermita 1</option>
+        <option value="Ermita 2">Ermita 2</option>
+        <option value="Ermita 3">Ermita 3</option>
+      </select>
+
+      <div id="zonaDiv">
+        <label for="zona">Zona a la que perteneces:</label>
+        <input type="text" id="zona"
