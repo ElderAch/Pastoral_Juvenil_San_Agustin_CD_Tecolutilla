@@ -3,11 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Pastoral Juvenil San Agustín</title>
+  <title>Pastoral Juvenil - Parroquia Nuestra Señora de Guadalupe</title>
   <style>
+    /* --- ESTILOS GENERALES --- */
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: "Poppins", Arial, sans-serif;
       background-image: url('fondo_pastoral.jpg');
       background-size: cover;
       background-attachment: fixed;
@@ -16,51 +17,70 @@
     }
 
     header {
-      background: #7A2E2E;
+      background: rgba(122, 46, 46, 0.95);
       color: #fff;
-      padding: 10px 20px;
+      padding: 20px 40px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      backdrop-filter: blur(5px);
     }
 
-    header img.logo-principal {
-      height: 80px;
-      width: auto;
+    header .logo-principal {
+      height: 90px;
+      width: 90px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #D4AF37;
       margin-right: 15px;
     }
 
+    .header-text {
+      display: flex;
+      flex-direction: column;
+    }
+
     .title {
-      font-size: 24px;
+      font-size: 26px;
       font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .subtitle {
+      font-size: 15px;
+      font-style: italic;
     }
 
     nav {
       background: #A94442;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     }
 
     nav ul {
       margin: 0;
       padding: 0;
       display: flex;
+      justify-content: center;
       list-style: none;
     }
 
     nav li {
-      padding: 14px 20px;
+      padding: 15px 25px;
     }
 
     nav a {
       color: #fff;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
+      transition: color 0.3s;
     }
 
     nav a:hover {
       color: #D4AF37;
     }
 
+    /* --- BANNER --- */
     .banner {
       position: relative;
       text-align: center;
@@ -69,7 +89,7 @@
 
     .banner img {
       width: 100%;
-      height: 400px;
+      height: 450px;
       object-fit: cover;
       filter: brightness(0.7);
     }
@@ -79,78 +99,114 @@
       bottom: 30px;
       left: 50%;
       transform: translateX(-50%);
-      background: rgba(0, 0, 0, 0.5);
-      padding: 15px 30px;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 20px 40px;
       border-radius: 10px;
-      font-size: 36px;
+      font-size: 38px;
       font-weight: bold;
       color: #D4AF37;
+      letter-spacing: 1px;
     }
 
+    /* --- CONTENIDO --- */
     .content {
-      padding: 30px;
-      background: rgba(255,255,255,0.9);
-      margin: 40px auto;
+      padding: 40px;
+      background: rgba(255,255,255,0.95);
+      margin: 50px auto;
       width: 85%;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      backdrop-filter: blur(8px);
     }
 
     .content h2 {
       color: #7A2E2E;
-      border-bottom: 2px solid #D4AF37;
-      padding-bottom: 5px;
+      border-left: 5px solid #D4AF37;
+      padding-left: 10px;
+      margin-bottom: 15px;
     }
 
-    .slider {
-      width: 90%;
-      margin: 30px auto;
-      overflow: hidden;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    .content p {
+      line-height: 1.6;
+      font-size: 16px;
+      margin-bottom: 25px;
     }
 
-    .slides {
-      display: flex;
-      width: 300%;
-      animation: slide 12s infinite;
+    /* --- GALERÍA DE EVENTOS --- */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
     }
 
-    .slides img {
+    .gallery img {
       width: 100%;
-      height: 400px;
+      height: 200px;
       object-fit: cover;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
 
-    @keyframes slide {
-      0% { margin-left: 0; }
-      33% { margin-left: -100%; }
-      66% { margin-left: -200%; }
-      100% { margin-left: 0; }
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+    }
+
+    /* --- MODAL (imagen ampliada) --- */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      padding-top: 80px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.8);
+    }
+
+    .modal-content {
+      margin: auto;
+      display: block;
+      width: 80%;
+      max-width: 800px;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(255,255,255,0.4);
+    }
+
+    .modal-content:hover {
+      transform: none;
+    }
+
+    .close {
+      position: absolute;
+      top: 30px;
+      right: 50px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
     }
 
     footer {
       background: #7A2E2E;
       color: #fff;
       text-align: center;
-      padding: 20px;
-      margin-top: 30px;
+      padding: 25px;
+      margin-top: 40px;
+      box-shadow: 0 -4px 10px rgba(0,0,0,0.3);
     }
 
-    .back-home {
-      display: inline-block;
-      margin-top: 20px;
-      background: #7A2E2E;
-      color: white;
-      padding: 10px 15px;
-      border-radius: 5px;
-      text-decoration: none;
-      transition: background 0.3s;
+    footer p {
+      margin: 5px 0;
     }
 
-    .back-home:hover {
-      background: #D4AF37;
-      color: #7A2E2E;
+    @media(max-width: 768px) {
+      .banner-text { font-size: 28px; }
+      header { flex-direction: column; text-align: center; }
+      header img.logo-principal { margin-bottom: 10px; }
     }
   </style>
 </head>
@@ -158,10 +214,13 @@
 <body>
   <header>
     <div style="display: flex; align-items: center;">
-      <img src="logo_pastoral.png" alt="Logo Pastoral Juvenil San Agustín" class="logo-principal">
-      <div class="title">Pastoral Juvenil San Agustín</div>
+      <img src="logo_pastoral.png" alt="Logo Pastoral Juvenil" class="logo-principal">
+      <div class="header-text">
+        <div class="title">Pastoral Juvenil San Agustín</div>
+        <div class="subtitle">Parroquia Nuestra Señora de Guadalupe • Cd. Tecolutilla</div>
+      </div>
     </div>
-    <div style="font-size: 14px;">“Caminar en la fe y el servicio”</div>
+    <div style="font-size: 15px;">“Caminar en la fe y el servicio”</div>
   </header>
 
   <nav>
@@ -182,24 +241,42 @@
 
   <section class="content">
     <h2>Descripción</h2>
-    <p>La Pastoral Juvenil es un espacio de encuentro, formación y misión para los jóvenes que desean crecer en su fe y servir en comunidad.</p>
+    <p>La Pastoral Juvenil es un espacio de encuentro, formación y misión para los jóvenes que desean crecer en su fe y servir en comunidad. Buscamos fortalecer la espiritualidad, el compromiso social y el sentido de fraternidad cristiana en los jóvenes de nuestra parroquia.</p>
 
     <h2>Reflexión</h2>
     <p>“Nadie te menosprecie por ser joven; al contrario, que los creyentes vean en ti un ejemplo a seguir en la manera de hablar, en la conducta, en amor, fe y pureza.” (1 Timoteo 4,12)</p>
 
     <h2>Eventos</h2>
-    <div class="slider">
-      <div class="slides">
-        <img src="evento1.jpg" alt="Retiro espiritual">
-        <img src="evento2.jpg" alt="Misa juvenil">
-        <img src="evento3.jpg" alt="Encuentro diocesano">
-      </div>
+    <div class="gallery">
+      <img src="evento1.jpg" alt="Retiro espiritual" onclick="openModal(this)">
+      <img src="evento2.jpg" alt="Misa juvenil" onclick="openModal(this)">
+      <img src="evento3.jpg" alt="Encuentro diocesano" onclick="openModal(this)">
     </div>
   </section>
 
+  <div id="modal" class="modal" onclick="closeModal()">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modal-img">
+  </div>
+
   <footer>
-    <p>Pastoral Juvenil Católica • Parroquia San Agustín</p>
+    <p>Pastoral Juvenil Católica • Parroquia Nuestra Señora de Guadalupe • Cd. Tecolutilla</p>
     <p>Contacto: pastoral@ejemplo.org • Tel: (999) 000-0000</p>
   </footer>
+
+  <script>
+    // --- Función para abrir imagen ampliada ---
+    function openModal(img) {
+      const modal = document.getElementById("modal");
+      const modalImg = document.getElementById("modal-img");
+      modal.style.display = "block";
+      modalImg.src = img.src;
+    }
+
+    // --- Función para cerrar modal ---
+    function closeModal() {
+      document.getElementById("modal").style.display = "none";
+    }
+  </script>
 </body>
 </html>
