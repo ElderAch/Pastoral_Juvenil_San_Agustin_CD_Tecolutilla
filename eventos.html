@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Pastoral Juvenil "San Agustín" - Parroquia Nuestra Señora de Guadalupe</title>
+  <title>Eventos - Pastoral Juvenil "San Agustín"</title>
+  <link rel="stylesheet" href="estilos.css">
   <style>
-    /* --- ESTILOS GENERALES --- */
     body {
       margin: 0;
       font-family: "Poppins", Arial, sans-serif;
@@ -24,55 +24,28 @@
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      backdrop-filter: blur(5px);
     }
 
-    header .logo-principal {
-      height: 80px;
-      width: 80px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid #fff;
-      margin-right: 15px;
+    .title {
+      font-size: 22px;
+      font-weight: bold;
     }
-
-    .header-text { display: flex; flex-direction: column; }
-    .title { font-size: 22px; font-weight: bold; color: #fff; }
-    .subtitle { font-size: 14px; font-style: italic; }
 
     nav {
       background: rgba(169, 68, 66, 0.9);
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      text-align: center;
+      padding: 10px;
     }
-
-    nav ul {
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      list-style: none;
-    }
-
-    nav li { padding: 12px 18px; }
 
     nav a {
       color: #fff;
       text-decoration: none;
+      margin: 0 10px;
       font-weight: 600;
-      font-size: 15px;
-      transition: color 0.3s;
     }
 
-    nav a:hover { color: #f0eaea; text-decoration: underline; }
-
-    .banner img {
-      width: 100%;
-      height: auto;
-      max-height: 450px;
-      object-fit: cover;
-      display: block;
+    nav a:hover {
+      text-decoration: underline;
     }
 
     .content {
@@ -84,19 +57,16 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.25);
     }
 
-    .content h2 {
-      color: #fff;
-      border-left: 5px solid #fff;
-      padding-left: 10px;
-      margin-bottom: 15px;
-      font-size: 20px;
+    .categoria {
+      margin-bottom: 40px;
     }
 
-    .content p {
-      line-height: 1.6;
-      font-size: 15px;
-      color: #f0f0f0;
-      margin-bottom: 25px;
+    .categoria h2 {
+      border-left: 5px solid #fff;
+      padding-left: 10px;
+      margin-bottom: 20px;
+      font-size: 20px;
+      color: #fff;
     }
 
     .gallery {
@@ -151,144 +121,67 @@
       cursor: pointer;
     }
 
-    .btn-ver-todos {
-      display: inline-block;
-      background: #a94442;
-      color: #fff;
-      text-decoration: none;
-      padding: 10px 20px;
-      border-radius: 8px;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-
-    .btn-ver-todos:hover { background: #8c3837; }
-
     footer {
       background: rgba(122, 46, 46, 0.9);
       color: #fff;
       text-align: center;
-      padding: 30px 10px;
+      padding: 20px;
       margin-top: 40px;
-      box-shadow: 0 -4px 10px rgba(0,0,0,0.3);
-    }
-
-    .social-icons { margin-top: 15px; }
-    .social-icons a { display: inline-block; margin: 0 10px; text-decoration: none; }
-    .social-icons img { width: 40px; height: 40px; border-radius: 50%; transition: transform 0.3s; }
-    .social-icons img:hover { transform: scale(1.2); }
-
-    footer .info { margin-top: 15px; font-size: 14px; line-height: 1.6; }
-    footer a { color: #fff; text-decoration: none; }
-    footer a:hover { text-decoration: underline; }
-
-    @media(max-width:768px) {
-      header { flex-direction: column; text-align: center; padding: 10px; }
-      header img.logo-principal { margin-bottom: 10px; }
-      .title { font-size: 20px; }
-      nav ul { flex-direction: column; }
-      nav li { padding: 10px; }
-      .content { width: 95%; padding: 20px; }
-      .gallery img { height: 150px; }
-      footer { font-size: 14px; }
     }
   </style>
 </head>
 
 <body>
-
-  <!-- HEADER -->
   <header>
-    <div style="display:flex; align-items:center; flex-wrap:wrap;">
-      <img src="logo_pastoral.png" alt="Logo" class="logo-principal">
-      <div class="header-text">
-        <div class="title">Pastoral Juvenil "San Agustín"</div>
-        <div class="subtitle">Parroquia Nuestra Señora de Guadalupe • Cd. Tecolutilla</div>
-      </div>
-    </div>
-    <div style="font-size:13px; text-align:center;">“Señor, dame lo que me pides y pídeme lo que quieras”</div>
+    <div class="title">Pastoral Juvenil "San Agustín" - Eventos</div>
   </header>
 
-  <!-- NAV -->
   <nav>
-    <ul>
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="registro.html" target="_blank">Registro</a></li>
-      <li><a href="calendario.html" target="_blank">Calendario</a></li>
-      <li><a href="formacion.html" target="_blank">Formación</a></li>
-      <li><a href="eventos.html">Eventos</a></li>
-      <li><a href="contacto.html">Contacto</a></li>
-    </ul>
+    <a href="index.html">Inicio</a>
+    <a href="registro.html" target="_blank">Registro</a>
+    <a href="calendario.html" target="_blank">Calendario</a>
   </nav>
 
-  <!-- BANNER -->
-  <section class="banner">
-    <img src="banner.jpg" alt="Banner principal">
-  </section>
-
-  <!-- SECCION FORMACION -->
   <section class="content">
-    <h2>Formación</h2>
-    <p>La Pastoral Juvenil ofrece talleres, cursos y encuentros de formación para los jóvenes, enfocados en: espiritualidad, liderazgo, catequesis y compromiso social. Cada actividad busca el desarrollo integral del joven en la comunidad.</p>
-  </section>
+    <!-- EVENTOS PARROQUIALES -->
+    <div class="categoria">
+      <h2>Eventos Parroquiales</h2>
+      <div class="gallery">
+        <img src="evento1.jpg" alt="Retiro Parroquial" onclick="openModal(this)">
+        <img src="evento4.jpg" alt="Convivencia Parroquial" onclick="openModal(this)">
+        <img src="evento5.jpg" alt="Misa de Envío" onclick="openModal(this)">
+      </div>
+    </div>
 
-  <!-- SECCION CALENDARIO -->
-  <section class="content">
-    <h2>Calendario</h2>
-    <p>Consulta todas nuestras actividades y eventos parroquiales en nuestro calendario actualizado. Planifica tu participación y no te pierdas ninguna actividad importante.</p>
-    <a href="calendario.html" class="btn-ver-todos">Ver Calendario Completo</a>
-  </section>
+    <!-- EVENTOS DE ERMITAS -->
+    <div class="categoria">
+      <h2>Eventos de Ermitas</h2>
+      <div class="gallery">
+        <img src="ermita1.jpg" alt="Reunión en Ermita San José" onclick="openModal(this)">
+        <img src="ermita2.jpg" alt="Formación en Ermita Guadalupe" onclick="openModal(this)">
+      </div>
+    </div>
 
-  <!-- SECCION REGISTRO -->
-  <section class="content">
-    <h2>Registro</h2>
-    <p>Si deseas participar en las actividades de la Pastoral Juvenil, regístrate para recibir información, convocatorias y seguimiento de tus actividades.</p>
-    <a href="registro.html" class="btn-ver-todos">Ir al Registro</a>
-  </section>
-
-  <!-- SECCION CONTACTO -->
-  <section class="content">
-    <h2>Contacto</h2>
-    <p>Para dudas, consultas o más información, puedes comunicarte con nosotros a través de:</p>
-    <ul>
-      <li>Email: <a href="mailto:pastoral@ejemplo.org">pastoral@ejemplo.org</a></li>
-      <li>Teléfono / WhatsApp: <a href="https://wa.me/5299999999999" target="_blank">+52 999 999 9999</a></li>
-      <li>Ubicación: <a href="https://maps.google.com/?q=Parroquia+Nuestra+Señora+de+Guadalupe,+Cd.+Tecolutilla,+Tabasco" target="_blank">Parroquia Nuestra Señora de Guadalupe, Cd. Tecolutilla, Tabasco</a></li>
-    </ul>
-  </section>
-
-  <!-- SECCION EVENTOS (como antes) -->
-  <section class="content">
-    <h2>Eventos</h2>
-    <div class="gallery">
-      <img src="evento1.jpg" alt="Retiro espiritual" onclick="openModal(this)">
-      <img src="evento2.jpg" alt="Misa juvenil" onclick="openModal(this)">
-      <img src="evento3.jpg" alt="Encuentro diocesano" onclick="openModal(this)">
+    <!-- VIGILIAS -->
+    <div class="categoria">
+      <h2>Vigilias y Adoraciones</h2>
+      <div class="gallery">
+        <img src="vigilia1.jpg" alt="Vigilia Juvenil" onclick="openModal(this)">
+        <img src="vigilia2.jpg" alt="Adoración Nocturna" onclick="openModal(this)">
+      </div>
     </div>
   </section>
 
-  <!-- MODAL PARA GALERIA -->
+  <!-- Modal -->
   <div id="modal" class="modal" onclick="closeModal()">
     <span class="close" onclick="closeModal()">&times;</span>
     <img class="modal-content" id="modal-img">
   </div>
 
-  <!-- FOOTER -->
   <footer>
-    <p>Parroquia Nuestra Señora de Guadalupe • Cd. Tecolutilla</p>
-    <div class="social-icons">
-      <a href="https://wa.me/5299999999999" target="_blank"><img src="icon_whatsapp.png" alt="WhatsApp"></a>
-      <a href="https://www.facebook.com/" target="_blank"><img src="icon_facebook.png" alt="Facebook"></a>
-      <a href="https://www.instagram.com/" target="_blank"><img src="icon_instagram.png" alt="Instagram"></a>
-      <a href="https://www.tiktok.com/" target="_blank"><img src="icon_tiktok.png" alt="TikTok"></a>
-    </div>
-    <div class="info">
-      <p><a href="mailto:pastoral@ejemplo.org">pastoral@ejemplo.org</a></p>
-      <p><a href="https://maps.google.com/?q=Parroquia+Nuestra+Señora+de+Guadalupe,+Cd.+Tecolutilla,+Tabasco" target="_blank">📍 Ubicación: Parroquia Nuestra Señora de Guadalupe, Cd. Tecolutilla, Tabasco</a></p>
-    </div>
+    <p>© 2025 Pastoral Juvenil "San Agustín" - Parroquia Nuestra Señora de Guadalupe</p>
   </footer>
 
-  <!-- SCRIPTS -->
   <script>
     function openModal(img) {
       const modal = document.getElementById("modal");
@@ -296,10 +189,10 @@
       modal.style.display = "block";
       modalImg.src = img.src;
     }
+
     function closeModal() {
       document.getElementById("modal").style.display = "none";
     }
   </script>
-
 </body>
 </html>
