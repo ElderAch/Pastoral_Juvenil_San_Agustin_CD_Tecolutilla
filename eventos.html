@@ -132,16 +132,22 @@
 </head>
 
 <body>
+  <!-- HEADER -->
   <header>
     <div class="title">Pastoral Juvenil "San Agustín" - Eventos</div>
   </header>
 
+  <!-- NAV -->
   <nav>
     <a href="index.html">Inicio</a>
     <a href="registro.html" target="_blank">Registro</a>
     <a href="calendario.html" target="_blank">Calendario</a>
+    <a href="formacion.html" target="_blank">Formación</a>
+    <a href="eventos.html">Eventos</a>
+    <a href="contacto.html" target="_blank">Contacto</a>
   </nav>
 
+  <!-- CONTENIDO -->
   <section class="content">
     <!-- EVENTOS PARROQUIALES -->
     <div class="categoria">
@@ -172,16 +178,18 @@
     </div>
   </section>
 
-  <!-- Modal -->
+  <!-- MODAL -->
   <div id="modal" class="modal" onclick="closeModal()">
     <span class="close" onclick="closeModal()">&times;</span>
     <img class="modal-content" id="modal-img">
   </div>
 
+  <!-- FOOTER -->
   <footer>
     <p>© 2025 Pastoral Juvenil "San Agustín" - Parroquia Nuestra Señora de Guadalupe</p>
   </footer>
 
+  <!-- SCRIPTS -->
   <script>
     function openModal(img) {
       const modal = document.getElementById("modal");
