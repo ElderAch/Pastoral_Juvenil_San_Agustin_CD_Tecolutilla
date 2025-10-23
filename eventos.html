@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Eventos - Pastoral Juvenil "San Agustín"</title>
+  <link rel="stylesheet" href="estilos.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", Arial, sans-serif;
+      background-image: url('fondo_pastoral.jpg');
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      color: #fff;
+    }
+
+    header {
+      background: rgba(122, 46, 46, 0.9);
+      color: #fff;
+      padding: 15px 25px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .title {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    nav {
+      background: rgba(169, 68, 66, 0.9);
+      text-align: center;
+      padding: 10px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .content {
+      padding: 25px;
+      margin: 30px auto;
+      width: 90%;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    }
+
+    .categoria {
+      margin-bottom: 40px;
+    }
+
+    .categoria h2 {
+      border-left: 5px solid #fff;
+      padding-left: 10px;
+      margin-bottom: 20px;
+      font-size: 20px;
+      color: #fff;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      padding-top: 80px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.8);
+    }
+
+    .modal-content {
+      margin: auto;
+      display: block;
+      width: 80%;
+      max-width: 800px;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(255,255,255,0.4);
+    }
+
+    .close {
+      position: absolute;
+      top: 30px;
+      right: 50px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    footer {
+      background: rgba(122, 46, 46, 0.9);
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="title">Pastoral Juvenil "San Agustín" - Eventos</div>
+  </header>
+
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="registro.html" target="_blank">Registro</a>
+    <a href="calendario.html" target="_blank">Calendario</a>
+  </nav>
+
+  <section class="content">
+    <!-- EVENTOS PARROQUIALES -->
+    <div class="categoria">
+      <h2>Eventos Parroquiales</h2>
+      <div class="gallery">
+        <img src="evento1.jpg" alt="Retiro Parroquial" onclick="openModal(this)">
+        <img src="evento4.jpg" alt="Convivencia Parroquial" onclick="openModal(this)">
+        <img src="evento5.jpg" alt="Misa de Envío" onclick="openModal(this)">
+      </div>
+    </div>
+
+    <!-- EVENTOS DE ERMITAS -->
+    <div class="categoria">
+      <h2>Eventos de Ermitas</h2>
+      <div class="gallery">
+        <img src="ermita1.jpg" alt="Reunión en Ermita San José" onclick="openModal(this)">
+        <img src="ermita2.jpg" alt="Formación en Ermita Guadalupe" onclick="openModal(this)">
+      </div>
+    </div>
+
+    <!-- VIGILIAS -->
+    <div class="categoria">
+      <h2>Vigilias y Adoraciones</h2>
+      <div class="gallery">
+        <img src="vigilia1.jpg" alt="Vigilia Juvenil" onclick="openModal(this)">
+        <img src="vigilia2.jpg" alt="Adoración Nocturna" onclick="openModal(this)">
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div id="modal" class="modal" onclick="closeModal()">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modal-img">
+  </div>
+
+  <footer>
+    <p>© 2025 Pastoral Juvenil "San Agustín" - Parroquia Nuestra Señora de Guadalupe</p>
+  </footer>
+
+  <script>
+    function openModal(img) {
+      const modal = document.getElementById("modal");
+      const modalImg = document.getElementById("modal-img");
+      modal.style.display = "block";
+      modalImg.src = img.src;
+    }
+
+    function closeModal() {
+      document.getElementById("modal").style.display = "none";
+    }
+  </script>
+</body>
+</html>
