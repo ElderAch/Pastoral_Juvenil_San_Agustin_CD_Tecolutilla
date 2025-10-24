@@ -8,7 +8,7 @@
     body {
       margin: 0;
       font-family: "Poppins", Arial, sans-serif;
-      background-image: url('https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&fit=crop&w=1500&q=80');
+      background-image: url('https://images.unsplash.com/photo-1522770179533-24471fcdba45?auto=format&fit=crop&w=1740&q=80');
       background-size: cover;
       background-attachment: fixed;
       background-position: center;
@@ -23,7 +23,6 @@
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
 
     .title {
@@ -52,35 +51,34 @@
       padding: 25px;
       margin: 30px auto;
       width: 90%;
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(0, 0, 0, 0.55);
       border-radius: 15px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     }
 
     h2 {
-      border-left: 5px solid #fff;
-      padding-left: 10px;
-      font-size: 22px;
-      margin-bottom: 20px;
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 26px;
+      color: #ffd;
     }
 
-    .library {
+    .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
+      gap: 20px;
     }
 
     .card {
-      background: rgba(255,255,255,0.1);
-      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
       overflow: hidden;
-      text-align: center;
-      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: transform 0.3s;
     }
 
     .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+      transform: scale(1.05);
     }
 
     .card img {
@@ -89,37 +87,30 @@
       object-fit: cover;
     }
 
-    .card h3 {
-      margin: 15px 0 10px;
-      font-size: 18px;
+    .card-content {
+      padding: 15px;
+      text-align: center;
+    }
+
+    .card-content h3 {
+      margin: 10px 0;
       color: #fff;
     }
 
-    .card p {
-      font-size: 14px;
-      padding: 0 15px 10px;
-      color: #ddd;
-    }
-
-    .btns {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      padding-bottom: 15px;
-    }
-
-    .btns a {
-      background: #a94442;
-      color: #fff;
+    .btn {
+      background: #ffcc00;
+      color: #000;
       text-decoration: none;
-      padding: 8px 14px;
-      border-radius: 20px;
-      font-size: 14px;
+      padding: 8px 15px;
+      border-radius: 25px;
+      font-weight: 600;
+      display: inline-block;
+      margin-top: 10px;
       transition: background 0.3s;
     }
 
-    .btns a:hover {
-      background: #7c2e2e;
+    .btn:hover {
+      background: #ffe066;
     }
 
     footer {
@@ -128,12 +119,6 @@
       text-align: center;
       padding: 20px;
       margin-top: 40px;
-      box-shadow: 0 -4px 10px rgba(0,0,0,0.3);
-    }
-
-    @media(max-width: 768px) {
-      .card img { height: 150px; }
-      .btns a { font-size: 12px; padding: 6px 10px; }
     }
   </style>
 </head>
@@ -153,53 +138,54 @@
   </nav>
 
   <section class="content">
-    <h2>Biblioteca Virtual</h2>
-    <p style="margin-bottom:25px;">Encuentra aquí materiales formativos para tu crecimiento espiritual, humano y comunitario. Haz clic en <b>“Ver”</b> para leer en línea o en <b>“Descargar”</b> para guardarlo.</p>
+    <h2>Biblioteca de Formación Juvenil</h2>
+    <div class="grid">
 
-    <div class="library">
-      <!-- CATEQUESIS JUVENIL -->
+      <!-- Catequesis Juvenil -->
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=800&q=80" alt="Catequesis Juvenil">
-        <h3>Catequesis Juvenil</h3>
-        <p>Material para fortalecer la fe, el conocimiento de la Palabra y la vivencia cristiana entre los jóvenes.</p>
-        <div class="btns">
-          <a href="recursos/catequesis_juvenil.pdf" target="_blank">Ver</a>
-          <a href="recursos/catequesis_juvenil.pdf" download>Descargar</a>
+        <img src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=800&q=80" alt="Catequesis Juvenil">
+        <div class="card-content">
+          <h3>Catequesis Juvenil</h3>
+          <a href="catequesis.html" class="btn">Ver</a>
         </div>
       </div>
 
-      <!-- LIDERAZGO CRISTIANO -->
+      <!-- Liturgia -->
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Liderazgo Cristiano">
-        <h3>Liderazgo Cristiano</h3>
-        <p>Guías y reflexiones para desarrollar un liderazgo con valores evangélicos, compromiso y servicio.</p>
-        <div class="btns">
-          <a href="recursos/liderazgo_cristiano.pdf" target="_blank">Ver</a>
-          <a href="recursos/liderazgo_cristiano.pdf" download>Descargar</a>
+        <img src="https://images.unsplash.com/photo-1533055640609-24b498cdf75d?auto=format&fit=crop&w=800&q=80" alt="Liturgia">
+        <div class="card-content">
+          <h3>Liturgia</h3>
+          <a href="liturgia.html" class="btn">Ver</a>
         </div>
       </div>
 
-      <!-- ESPIRITUALIDAD JUVENIL -->
+      <!-- Espiritualidad -->
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=800&q=80" alt="Espiritualidad Juvenil">
-        <h3>Espiritualidad Juvenil</h3>
-        <p>Recursos para cultivar la vida de oración, discernimiento y cercanía con Dios en la juventud.</p>
-        <div class="btns">
-          <a href="recursos/espiritualidad_juvenil.pdf" target="_blank">Ver</a>
-          <a href="recursos/espiritualidad_juvenil.pdf" download>Descargar</a>
+        <img src="https://images.unsplash.com/photo-1512314889357-e157c22f938d?auto=format&fit=crop&w=800&q=80" alt="Espiritualidad">
+        <div class="card-content">
+          <h3>Espiritualidad Juvenil</h3>
+          <a href="espiritualidad.html" class="btn">Ver</a>
         </div>
       </div>
 
-      <!-- COMPROMISO SOCIAL -->
+      <!-- Misiones -->
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=800&q=80" alt="Compromiso Social">
-        <h3>Compromiso Social</h3>
-        <p>Textos e iniciativas que promueven la acción solidaria, el servicio y la transformación de la realidad.</p>
-        <div class="btns">
-          <a href="recursos/compromiso_social.pdf" target="_blank">Ver</a>
-          <a href="recursos/compromiso_social.pdf" download>Descargar</a>
+        <img src="https://images.unsplash.com/photo-1544535830-9f975d1a5011?auto=format&fit=crop&w=800&q=80" alt="Misiones">
+        <div class="card-content">
+          <h3>Misiones</h3>
+          <a href="misiones.html" class="btn">Ver</a>
         </div>
       </div>
+
+      <!-- Formación de Líderes -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&fit=crop&w=800&q=80" alt="Liderazgo Juvenil">
+        <div class="card-content">
+          <h3>Formación de Líderes</h3>
+          <a href="lideres.html" class="btn">Ver</a>
+        </div>
+      </div>
+
     </div>
   </section>
 
